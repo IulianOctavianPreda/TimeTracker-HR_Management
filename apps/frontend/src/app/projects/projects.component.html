@@ -1,0 +1,21 @@
+<div class="lg:grid lg:grid-rows-[auto_auto_1fr] h-full w-full">
+  <div class="flex justify-center items-center w-full p-2">
+    <div class="lg:grid lg:grid-cols-[1fr_auto] flex items-center flex-wrap lg:w-2/3 w-full">
+      <form class="w-full">
+        <formly-form
+          class="flex justify-between flex-wrap"
+          [fields]="projectsFields"
+          [model]="projectsModel"
+          [form]="projectsForm"></formly-form>
+      </form>
+      <span class="flex items-center lg:mt-4.8 lg:ml-5">
+        <p-button [icon]="icons.PLUS" (onClick)="addProject()"></p-button>
+        <p-button styleClass="p-button-danger" [icon]="icons.TRASH" (onClick)="removeProject()"></p-button>
+      </span>
+    </div>
+  </div>
+
+  <ng-container *ngIf="projects$ | async as projects">
+    <hc-project-team-manager [projects$]="projects$" [projectsForm]="projectsForm"></hc-project-team-manager>
+  </ng-container>
+</div>

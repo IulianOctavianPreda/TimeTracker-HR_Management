@@ -1,0 +1,19 @@
+<div class="w-full h-full flex justify-center items-center">
+  <p-card class="w-full lg:w-1/4">
+    <form class="flex items-center justify-center p-1" [formGroup]="form" (ngSubmit)="onSubmit(model)">
+      <formly-form class="w-full" [form]="form" [fields]="fields" [model]="model"></formly-form>
+    </form>
+    <p-button
+      (onClick)="onSubmitRegister(model)"
+      label="Register"
+      class="p-1"
+      styleClass="p-button-secondary"
+      [disabled]="!form.valid"></p-button>
+    <p-button
+      (onClick)="onSubmit(model)"
+      label="Login"
+      class="p-1"
+      styleClass="p-button-secondary"
+      [disabled]="!form.valid"></p-button>
+  </p-card>
+</div>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "projects": {
+    "api-interfaces": "libs/api-interfaces",
+    "backend": "apps/backend",
+    "frontend": "apps/frontend",
+    "frontend-data-contracts": "libs/frontend/data-contracts",
+    "frontend-e2e": "apps/frontend-e2e",
+    "shared": "libs/shared"
+  }
+}

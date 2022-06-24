@@ -1,0 +1,9 @@
+<div class="lg:grid lg:grid-rows-[auto_1fr] h-full w-full">
+  <p-tabMenu styleClass="p-tabmenu-center" [model]="items" [activeItem]="activeItem" [scrollable]="false"> </p-tabMenu>
+
+  <ng-continer [ngSwitch]="activeItem.id">
+    <hc-dashboard-activity *ngSwitchCase="'dashboard-activity'"></hc-dashboard-activity>
+    <hc-time-tracker *ngSwitchCase="'time-tracking'"></hc-time-tracker>
+    <hc-time-off *ngSwitchCase="'time-off'"></hc-time-off>
+  </ng-continer>
+</div>

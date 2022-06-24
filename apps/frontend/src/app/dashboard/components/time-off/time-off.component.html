@@ -1,0 +1,35 @@
+<div class="flex justify-center items-center w-full p-2">
+  <div class="lg:grid lg:grid-cols-[1fr_auto] flex items-center flex-wrap lg:w-2/3 w-full">
+    <form class="w-full">
+      <formly-form class="flex justify-between flex-wrap" [fields]="fields" [model]="model" [form]="form"></formly-form>
+    </form>
+    <p-button class="lg:mt-4.8 lg:ml-5" (onClick)="onSave()">Save</p-button>
+  </div>
+</div>
+
+<p-table
+  class="flex justify-center items-center p-2"
+  styleClass="lg:w-2/3 w-full overflow-auto"
+  [value]="timeOffs$ | async | hcDefaultValue: []"
+  responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Duration</th>
+      <th>Reason</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-timeOff>
+    <tr>
+      <td>{{ timeOff.startDate | date }}</td>
+      <td>{{ timeOff.endDate | date }}</td>
+      <td>{{ timeOff.duration | hcTimeDuration }}</td>
+      <td>{{ timeOff.reason }}</td>
+      <td>
+        <p-button (onClick)="removeEntry(timeOff)" [icon]="icons.TRASH"> </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

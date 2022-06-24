@@ -1,0 +1,122 @@
+{
+  "sourceRoot": "apps/backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/backend",
+        "main": "apps/backend/src/main.ts",
+        "tsConfig": "apps/backend/tsconfig.app.json",
+        "tsPlugins": [
+          {
+            "name": "@nestjs/swagger/plugin",
+            "options": {
+              "dtoFileNameSuffix": [".entity.ts", ".dto.ts", ".base.ts"],
+              "controllerFileNameSuffix": [".controller.ts"],
+              "classValidatorShim": true,
+              "dtoKeyOfComment": "description",
+              "controllerKeyOfComment": "description",
+              "introspectComments": true
+            }
+          }
+        ],
+        "assets": ["apps/backend/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/backend/src/environments/environment.ts",
+              "with": "apps/backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/backend"],
+      "options": {
+        "jestConfig": "apps/backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "mikro-orm": {
+      "executor": "@alexy4744/nx-mikro-orm-cli:run",
+      "options": {
+        "config": {
+          "configPaths": ["./mikro-orm.config.ts"],
+          "tsConfigPath": "./tsconfig.json",
+          "useTsNode": true
+        }
+      }
+    },
+    "schema-create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"schema:create --run\""
+      }
+    },
+    "schema-fresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"schema:fresh --run --seed\""
+      }
+    },
+    "schema-update": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"schema:update --safe --run\""
+      }
+    },
+    "schema-drop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"schema:drop --run\""
+      }
+    },
+    "migration-initial": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"migration:create --initial\""
+      }
+    },
+    "migration-create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"migration:create\""
+      }
+    },
+    "migration-fresh": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"migration:fresh --seed\""
+      }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx mikro-orm backend --args=\"seeder:run\""
+      }
+    }
+  },
+  "tags": []
+}

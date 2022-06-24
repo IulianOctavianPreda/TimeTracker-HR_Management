@@ -1,0 +1,12 @@
+{
+  "apiModulePrefix": "DataContracts",
+  "enumNameSuffix": "",
+  "supportsES6": true,
+  "useSingleRequestParameter": false,
+  "fileNaming": "kebab-case",
+  "stringEnums": false,
+  "engine": "handlebars",
+  "removeOperationIdPrefix": true,
+  "removeOperationIdPrefixDelimiter": "_",
+  "removeOperationIdPrefixCount": -1
+}

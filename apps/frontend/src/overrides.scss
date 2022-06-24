@@ -1,0 +1,18 @@
+@import './app/navigation-bar/navigation-bar.component-override.scss';
+@import './app/login/login.component-override.scss';
+@import './app/dashboard/dashboard.component-override.scss';
+@import './app/icon/icon.component-override.scss';
+
+// TODO move global styles like this to a better solution
+.p-tabmenu-center {
+  .p-tabmenu-nav {
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+formly-form {
+  label {
+    color: var(--text-color);
+  }
+}

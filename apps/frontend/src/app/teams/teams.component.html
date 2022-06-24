@@ -1,0 +1,41 @@
+<div class="lg:grid lg:grid-rows-[auto_auto_1fr] h-full w-full">
+  <div class="flex justify-center items-center w-full p-2">
+    <div class="lg:grid lg:grid-cols-[1fr_auto] flex items-center flex-wrap lg:w-2/3 w-full">
+      <form class="w-full">
+        <formly-form
+          class="flex justify-between flex-wrap"
+          [fields]="teamsFields"
+          [model]="teamsModel"
+          [form]="teamsForm"></formly-form>
+      </form>
+      <span class="flex items-center lg:mt-4.8 lg:ml-5">
+        <p-button [icon]="icons.PLUS" (onClick)="addTeam()"></p-button>
+        <ng-container *ngIf="teams$ | async as teams">
+          <p-button
+            *ngIf="teams?.[selectedTeam]?.teamAdmin?.id === userId"
+            styleClass="p-button-danger ml-5"
+            [icon]="icons.TRASH"
+            (onClick)="removeTeam()"></p-button>
+        </ng-container>
+      </span>
+    </div>
+  </div>
+
+  <ng-container *ngIf="teams$ | async as teams">
+    <p-tabMenu
+      clas
+      styleClass="p-tabmenu-center"
+      [model]="teams?.[selectedTeam]?.teamAdmin?.id === authService.userId ? adminMenuTabs :menuTabs"
+      [activeItem]="activeItem"
+      [scrollable]="false">
+    </p-tabMenu>
+    <ng-continer [ngSwitch]="activeItem.id">
+      <hc-user-manager *ngSwitchCase="'users'" [teams$]="teams$" [teamsForm]="teamsForm"></hc-user-manager>
+      <hc-project-manager *ngSwitchCase="'projects'" [teams$]="teams$" [teamsForm]="teamsForm"></hc-project-manager>
+      <hc-time-off-calendar *ngSwitchCase="'time-off'" [teamId]="teamId"></hc-time-off-calendar>
+      <hc-team-settings
+        *ngSwitchCase="'team-settings'"
+        [teamSettings]="teams[selectedTeam].teamSettings"></hc-team-settings>
+    </ng-continer>
+  </ng-container>
+</div>

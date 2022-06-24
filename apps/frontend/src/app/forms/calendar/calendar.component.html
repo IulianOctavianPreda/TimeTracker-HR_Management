@@ -1,0 +1,15 @@
+<p-calendar
+  [formControl]="formControl"
+  [formlyAttributes]="field"
+  [inline]="to.inline ?? false"
+  [showTime]="to.showTime ?? false"
+  [timeOnly]="to.timeOnly ?? false"
+  [dateFormat]="'yy/mm/dd'">
+  <ng-template pTemplate="date" let-date>
+    <ng-container *ngIf="checkedDates$ | async as checkedDates">
+      <span [ngClass]="[checkedDates[date.month]?.includes(date.day) ? 'text-green-300' : 'inherit']">{{
+        date.day
+      }}</span>
+    </ng-container>
+  </ng-template>
+</p-calendar>

@@ -1,0 +1,87 @@
+{
+  "prettier.configPath": ".prettierrc",
+
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.autoClosingBrackets": "always",
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+
+  "[html]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {},
+  "[typescript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Citus",
+      "database": "postgres",
+      "username": "postgres",
+      "password": "password"
+    },
+    {
+      "previewLimit": 50,
+      "server": "192.168.1.179",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "database": "postgres",
+      "username": "postgres",
+      "password": "password",
+      "name": "CitusIp"
+    }
+  ],
+  "javascript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "cSpell.words": [
+    "alexy",
+    "autoseed",
+    "Chakra",
+    "citus",
+    "Citus",
+    "citusdata",
+    "distros",
+    "DTO's",
+    "dtos",
+    "frontends",
+    "Kubernetes",
+    "Mikr",
+    "mikro",
+    "Mikro",
+    "mylib",
+    "nestjs",
+    "pnpm",
+    "pnpx",
+    "psql",
+    "transfered",
+    "typeorm",
+    "vmmem",
+    "wslconfig"
+  ],
+  "vsicons.presets.angular": true
+}

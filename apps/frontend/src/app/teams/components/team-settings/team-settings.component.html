@@ -1,0 +1,8 @@
+<div class="flex justify-center items-center w-full p-2">
+  <div class="lg:w-2/3 flex items-center flex-wrap">
+    <form class="grid grid-flow-row gap-4">
+      <formly-form class="grid grid-flow-row gap-4" [fields]="fields" [model]="model" [form]="form"></formly-form>
+      <p-button [icon]="icons.SAVE" (onClick)="onSave()"> </p-button>
+    </form>
+  </div>
+</div>

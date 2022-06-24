@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo \"[Husky] pre-push stage started\"
+# Scripts to run
+
+# npm run format:write
+# npm run affected:lint
+
+# Exit with success
+echo \"[Husky] pre-push stage finished\"

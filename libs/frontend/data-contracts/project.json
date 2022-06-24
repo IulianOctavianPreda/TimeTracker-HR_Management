@@ -1,0 +1,22 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/frontend/data-contracts/src",
+  "prefix": "hc",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/data-contracts"],
+      "options": {
+        "jestConfig": "libs/frontend/data-contracts/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/frontend/data-contracts/**/*.ts", "libs/frontend/data-contracts/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

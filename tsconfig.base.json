@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esNext", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hc/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@hc/frontend-data-contracts": ["libs/frontend/data-contracts/src/lib/index.ts"],
+      "@shared": ["libs/shared/src/index.ts"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,19 @@
+<p-sidebar [(visible)]="expanded" position="left" [showCloseIcon]="false" (onShow)="onShow($event)" #sidebar>
+  <div #contentTemplate></div>
+  <p-slideMenu
+    #slideMenu
+    class="!h-full !w-full p-0"
+    styleClass="!h-full !w-full p-0"
+    [model]="items"
+    [popup]="false"
+    [viewportHeight]="height$ | async | hcDefaultValue: 170"
+    [menuWidth]="width$ | async | hcDefaultValue: 170">
+  </p-slideMenu>
+</p-sidebar>
+
+<div
+  *ngIf="!expanded"
+  class="absolute top-1/2 left-0 border-2 border-zinc-900 border-solid border-l-0 rounded-r-xl transform -translate-y-1/2 z-max arrow"
+  (click)="setExpanded(true)">
+  <hc-icon [icon]="icons.ANGLE_DOUBLE_RIGHT" size="3xl"></hc-icon>
+</div>

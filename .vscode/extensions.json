@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "nrwl.angular-console",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+    "aaron-bond.better-comments",
+    "bradlc.vscode-tailwindcss",
+    "ms-vsliveshare.vsliveshare",
+    "stringham.move-ts",
+    "vincaslt.highlight-matching-tag",
+    "wix.vscode-import-cost"
+  ]
+}
